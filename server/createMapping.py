@@ -6,24 +6,15 @@ import sys
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
 
-rotationTimeRight = .0175
-rotationTimeLeft = .0185
+rotationTime = .0165
 
-def getRotationTimeRight():
-    global rotationTimeRight
+def getRotationTime():
+    global rotationTime
     for x in range(360):
         rotateDegRight()
     print("Enter degrees rotated: ")
     rotation = input()
-    rotationTimeRight = rotationTimeRight * 360 / float(rotation)
-
-def getRotationTimeLeft():
-    global rotationTimeLeft
-    for x in range(360):
-        rotateDegLeft()
-    print("Enter degrees rotated: ")
-    rotation = input()
-    rotationTimeLeft = rotationTimeLeft * 360 / float(rotation)
+    rotationTime = rotationTime * 360 / float(rotation)
 
 
 
@@ -89,8 +80,7 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
 
 if __name__ == '__main__':
     try:
-        getRotationTimeRight()
-        getRotationTimeLeft()
+        getRotationTime()
         grid = np.zeros((100,100))
         print(grid)
         createMapping(0,0,grid)
