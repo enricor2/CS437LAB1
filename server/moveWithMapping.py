@@ -24,12 +24,12 @@ def getRotationTime():
         for x in range(360-int(rotation)):
             rotateDegRight()
     print("Enter degrees till 360 (negative if overshot): ")
-    rotation += float(input())
-    if rotation > 360:
-        for x in range(int(rotation)-360):
+    rotation = float(input())
+    if rotation > 0:
+        for x in range(int(rotation)):
             rotateDegLeft()
-    elif rotation < 360:
-        for x in range(360-int(rotation)):
+    elif rotation < 0:
+        for x in range(-int(rotation)):
             rotateDegRight()
 
 def getTravelTime():
