@@ -24,7 +24,7 @@ def RadarScan():
         dist = 12.5*ultra.checkdist()   # each value is 8 cm (100 unit grid covers 4 m working distance of ultrasonic)
         if dist > 50:                   # still within the bounds of the array 
             dist = 0
-        results.append([int(dist*np.sin(x*np.pi/180)),int(dist*np.cos(x*np.pi/180))])
+        results.append([int(dist*np.sin(i*np.pi/180)),int(dist*np.cos(i*np.pi/180))])
     return results
 
 def createMapping(x_loc,y_loc,map):
