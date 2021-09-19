@@ -8,7 +8,7 @@ move.setup()
 np.set_printoptions(threshold=sys.maxsize)
 rotationTime = .0165
 travelTime = .25
-dir = 1 # 1-U 2-D 3-R 4-L
+direction = 1 # 1-U 2-D 3-R 4-L
 
 def getRotationTime():
     global rotationTime
@@ -110,7 +110,7 @@ def move2():
     time.sleep(travelTime)
     move.motorStop()
 
-def followPath(path,x_loc, y_loc, dir,numStep = 0):
+def followPath(path,x_loc, y_loc, direction,numStep = 0):
     if numStep == 0:
         numStep = len(path)
     for x in range (numStep):
@@ -118,82 +118,82 @@ def followPath(path,x_loc, y_loc, dir,numStep = 0):
             print("Arrived at end of path.")
             return x_loc, y_loc
         nextStep = path[x+1]-path[x]    
-        turn(dir,nextStep)
+        turn(direction,nextStep)
         for x in range(4):
             print("move2")
             move2()
 
-def turn(dir, nextStep):
+def turn(direction, nextStep):
     print("turn")
-    if dir == 1:                    #F
+    if direction == 1:                    #F
         if nextStep == [1,0]:       #F
             return
         elif nextStep == [0,1]:     #R
             for x in range(90):
                 rotateDegRight()
-            dir = 3
+            direction = 3
             return
         elif nextStep == [-1,0]:    #B
             for x in range(180):
                 rotateDegRight()
-            dir = 2
+            direction = 2
             return
         elif nextStep == [0,-1]:    #L
             for x in range(90):
                 rotateDegLeft()
-            dir = 4
+            direction = 4
             return
-    elif dir == 2:                  #B
+    elif direction == 2:                  #B
         if nextStep == [1,0]:       #F
             for x in range(180):
                 rotateDegRight()
-            dir = 1
+            direction = 1
             return
         elif nextStep == [0,1]:     #R
             for x in range(90):
                 rotateDegLeft()
-            dir = 3
+            direction = 3
             return
         elif nextStep == [-1,0]:    #B
             return
         elif nextStep == [0,-1]:    #L
             for x in range(90):
                 rotateDegRight()
-            dir = 4
+            direction = 4
             return
-    elif dir == 3:                  #R
+    elif direction == 3:                  #R
         if nextStep == [1,0]:       #F
             for x in range(90):
                 rotateDegLeft()
-            dir = 1
+            direction = 1
             return
         elif nextStep == [0,1]:     #R
             return
         elif nextStep == [-1,0]:    #B
             for x in range(90):
                 rotateDegRight()
-            dir = 2
+            direction = 2
             return
         elif nextStep == [0,-1]:    #L
             for x in range(180):
                 rotateDegRight()
-            dir = 4
+            direction = 4
             return
-    elif dir == 4:
+    elif direction == 4:
         if nextStep == [1,0]:       #F
             for x in range(90):
                 rotateDegRight()
-            dir = 1
+            direction = 1
             return
         elif nextStep == [0,1]:     #R
             for x in range(180):
                 rotateDegRight()
-            dir = 3
+            direction = 3
             return
         elif nextStep == [-1,0]:    #B
             for x in range(90):
                 rotateDegLeft()
-            dir = 2
+            direction = 2
             return
         elif nextStep == [0,-1]:    #L
             return
@@ -234,9 +234,9 @@ if __name__ == '__main__':
         
         while (x_loc != x and y_loc != y):
             if (path[-1] != [y,x]):
-                x_loc, y_loc = followPath(path,x_loc,dir,6)
+                x_loc, y_loc = followPath(path,x_loc,direction,6)
             else:
-                x_loc,y_loc = followPath(path,x_loc,dir)
+                x_loc,y_loc = followPath(path,x_loc,direction)
 
         print(path)
         print("Beginning travel...")
