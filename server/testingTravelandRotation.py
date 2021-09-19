@@ -39,7 +39,7 @@ def getTravelTime():
     move.motorStop()
     print("Enter cms traveled forward: ")
     dist = float(input())
-    travelTime = travelTime * 1 / dist
+    travelTime = 2* (travelTime * 1 / dist)
     if dist > 1:
         move.move(50,'backward','no',0.8)
         time.sleep(travelTime*dist)
