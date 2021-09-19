@@ -119,6 +119,8 @@ def followPath(path,x_loc, y_loc):
             return x_loc, y_loc
         nextStep = [path[x+1][0]-path[x][0],path[x+1][1]-path[x][1]]    
         turn(nextStep)
+        y_loc += nextStep[0]
+        x_loc += nextStep[1]
         for x in range(4):
             print("move2",nextStep, direction)
             move2()
@@ -211,31 +213,32 @@ if __name__ == '__main__':
         y = int(float(input())/.08)
         print("Please wait for rotation testing...")
         getRotationTime()
-        # print("Please wait for distance testing...")
-        # getTravelTime()
-        
-        # print("Scanning surroundings")
-        # grid = np.full((10,10),0)
-        # createMapping(0,0,grid)
-        grid =  np.asarray([[0, 1, 1, 0, 0, 1, 0, 0, 0, 0],
-                            [0, 1, 1, 0, 1, 1, 0, 1, 1, 0],
-                            [0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
-                            [0, 1, 1, 0, 1, 0, 1, 1, 1, 0],
-                            [0, 1, 1, 1, 0, 0, 0, 0, 1, 0],
-                            [1, 1, 1, 0, 1, 0, 1, 1, 1, 0],
-                            [0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
-                            [0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
-                            [0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
-        print(grid)
+        print("Please wait for distance testing...")
+        getTravelTime()
         num_rows, num_cols = grid.shape
         offset = int(num_rows/2-1)
-        print("Planning a path")
-        path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
-        print(path)
         while (x_loc != x or y_loc != y):
+            print("Scanning surroundings")
+            grid = np.full((10,10),0)
+            createMapping(0,0,grid)
+            # grid =  np.asarray([[0, 1, 1, 0, 0, 1, 0, 0, 0, 0],
+            #                     [0, 1, 1, 0, 1, 1, 0, 1, 1, 0],
+            #                     [0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+            #                     [0, 1, 1, 0, 1, 0, 1, 1, 1, 0],
+            #                     [0, 1, 1, 1, 0, 0, 0, 0, 1, 0],
+            #                     [1, 1, 1, 0, 1, 0, 1, 1, 1, 0],
+            #                     [0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
+            #                     [0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
+            #                     [0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+            #                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
+            print(grid)
+        
+            print("Planning a path")
+            path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
+            print(path)
             print("Following path...")
-            x_loc,y_loc = followPath(path,x_loc,y_loc)
+            x_loc, y_loc = followPath(path,x_loc,y_loc)
+
 
         print(path)
         print("Beginning travel...")
