@@ -7,7 +7,7 @@ import aStar
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
 rotationTime = .0165
-travelTime = .1
+travelTime = .25
 
 def getRotationTime():
     global rotationTime
