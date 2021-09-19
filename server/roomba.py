@@ -33,7 +33,7 @@ def rotateDegLeft():
         time.sleep(.05)
 
 def roomba():
-        if ultra.checkdist() < .5:
+        if ultra.checkdist() < .3:
                 move.move(70, 'backward', 'no', .5)
                 time.sleep(.75)
                 if np.random.rand() > .5:
