@@ -71,20 +71,13 @@ def aStar(map, curPos, endPos):
     
     
     current_node = visited[0]                   # we traversed our map and found no path to solution
-    current_index = 0                           # so find the choose randomly between lowest distTo, or farthest away and travel there
-    if np.random.rand() > .5:
-        print("Closest to end")
-        for visited_node in visited:
-            if (visited_node.distToEndPos < current_node.distToEndPos): # find closest to end   
-                    current_node = visited_node
-                    current_index = index
-    else:
-        print("Farthest away")
-        for visited_node in visited:
-            if (visited_node.distToCurPos > current_node.distToCurPos): # find max dist away     
-                    current_node = visited_node
-                    current_index = index
-   
+    current_index = 0                           # so find the lowest distTo
+    print("Closest to end")
+    for visited_node in visited:
+        if (visited_node.distToEndPos < current_node.distToEndPos): # find closest to end   
+                current_node = visited_node
+                current_index = index
+
     path = []                                   
     while current_node is not None:
         path.append(current_node.position)
