@@ -16,10 +16,10 @@ def getRotationTime():
     rotation = float(input())
     rotationTime = rotationTime * 360 / rotation
     if rotation > 360:
-        for x in range(rotation-360):
+        for x in range(int(rotation)-360):
             rotateDegLeft()
     elif rotation < 360:
-        for x in range(360-rotation):
+        for x in range(360-int(rotation)):
             rotateDegRight()
 
 
