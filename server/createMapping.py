@@ -15,6 +15,12 @@ def getRotationTime():
     print("Enter degrees rotated: ")
     rotation = input()
     rotationTime = rotationTime * 360 / float(rotation)
+    if rotation > 360:
+        for x in range(rotation-360):
+            rotateDegLeft()
+    elif rotation < 360:
+        for x in range(360-rotation):
+            rotateDegRight()
 
 
 
