@@ -5,7 +5,7 @@ import numpy as np
 import sys
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
-
+np.core.arrayprint._line_width = 200
 rotationTime = .0165
 
 def getRotationTime():
