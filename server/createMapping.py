@@ -3,9 +3,9 @@ import move
 import time
 import numpy as np
 import sys
+from matplotlib import pyplot as plt
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
-np.core.arrayprint._line_width = 200
 rotationTime = .0165
 
 def getRotationTime():
@@ -90,8 +90,10 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
 if __name__ == '__main__':
     try:
         getRotationTime()
-        grid = np.full((20,20),' ')
+        grid = np.full((100,100),0)
         createMapping(0,0,grid)
-        print(grid)
+        plt.title("Map of Objects")
+        plt.imshow(grid,cmap='Greys_r')
+        plt.show()
     except KeyboardInterrupt:
         move.destroy()
