@@ -20,8 +20,8 @@ def RadarScan():
     results = []
     for i in range(360):
         rotateDegRight()
-        dist = 50*ultra.checkdist() # each value is 8 cm (100 unit grid covers 4 m working distance of ultrasonic)
-        if dist > 4:
+        dist = 50*ultra.checkdist() # each value is 2 cm
+        if dist > 50:
             dist = 0
         results.append([int(dist*np.sin(x*np.pi/180)),int(dist*np.cos(x*np.pi/180))])
     return results

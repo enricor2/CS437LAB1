@@ -25,11 +25,11 @@ def getRotationTime():
             rotateDegRight()
     print("Enter degrees till 360 (negative if overshot): ")
     rotation = float(input())
-    if rotation > 0:
-        for x in range(int(rotation)):
-            rotateDegLeft()
-    elif rotation < 0:
+    if rotation < 0:
         for x in range(-int(rotation)):
+            rotateDegLeft()
+    elif rotation > 0:
+        for x in range(int(rotation)):
             rotateDegRight()
 
 def getTravelTime():
@@ -260,7 +260,7 @@ if __name__ == '__main__':
 
 
         print(path)
-        print("Beginning travel...")
+        
         
     
     except KeyboardInterrupt:
