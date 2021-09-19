@@ -213,7 +213,7 @@ if __name__ == '__main__':
         grid = np.full((100,100),0)
         createMapping(0,0,grid)
         print("Planning a path")
-        path = aStar.relativeListPath(aStar.aStar(grid,(49,49),(49-x,y-49),49,49))
+        path = aStar.relativeListPath(aStar.aStar(grid,(49,49),(49-x,y-49)),49,49)
         while (x_loc != x and y_loc != y):
             if path[-1] != (x,y):
                 x_loc, y_loc = followPath(path,x_loc,dir,6)
