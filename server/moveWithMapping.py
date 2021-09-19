@@ -209,14 +209,24 @@ if __name__ == '__main__':
         # print("Please wait for distance testing...")
         # getTravelTime()
         
-        print("Scanning surroundings")
-        grid = np.full((10,10),0)
-        createMapping(0,0,grid)
+        # print("Scanning surroundings")
+        # grid = np.full((10,10),0)
+        # createMapping(0,0,grid)
+        grid =  [[0, 1, 1, 0, 0, 1, 0, 0, 0, 0],
+                [0, 1, 1, 0, 1, 1, 0, 1, 1, 0],
+                [0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+                [0, 1, 1, 0, 1, 0, 1, 1, 1, 0],
+                [0, 1, 1, 1, 0, 0, 0, 0, 1, 0],
+                [1, 1, 1, 0, 1, 0, 1, 1, 1, 0],
+                [0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
+                [0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
+                [0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
         print(grid)
         num_rows, num_cols = grid.shape
         offset = int(num_rows/2-1)
         print("Planning a path")
-        path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-x,y-offset)),offset,offset)
+        path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
         while (x_loc != x and y_loc != y):
             if path[-1] != (x,y):
                 x_loc, y_loc = followPath(path,x_loc,dir,6)
