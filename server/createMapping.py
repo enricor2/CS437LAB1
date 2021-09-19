@@ -34,7 +34,7 @@ def RadarScan():
     results = []
     for i in range(360):
         rotateDegRight()
-        dist = 12.5*ultra.checkdist()   # each value is 8 cm (100 unit grid covers 4 m working distance of ultrasonic)
+        dist = 12.5*ultra.checkdist()   # each value is 8 cm (100 unit grid covers 4 m working distance of ultrasonic) display uses 20x20
         if dist > 50:                   # still within the bounds of the array 
             dist = 0
         results.append([int(dist*np.sin(i*np.pi/180)),int(dist*np.cos(i*np.pi/180))])
@@ -81,8 +81,7 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
 if __name__ == '__main__':
     try:
         getRotationTime()
-        grid = np.zeros((100,100))
-        print(grid)
+        grid = np.zeros((20,20))
         createMapping(0,0,grid)
         print(grid)
     except KeyboardInterrupt:
