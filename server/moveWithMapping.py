@@ -206,7 +206,6 @@ if __name__ == '__main__':
         x = int(float(input())/.08)
         print("y position to travel to in m: ")
         y = int(float(input())/.08)
-        end = [y,x]
         # print("Please wait for rotation testing...")
         # getRotationTime()
         # print("Please wait for distance testing...")
@@ -231,7 +230,7 @@ if __name__ == '__main__':
         print("Planning a path")
         path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
         while (x_loc != x and y_loc != y):
-            if path[-1] != end):
+            if (path[-1] != [y,x]):
                 x_loc, y_loc = followPath(path,x_loc,dir,6)
             else:
                 x_loc,y_loc = followPath(path,x_loc,dir)
