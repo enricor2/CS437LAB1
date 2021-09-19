@@ -204,17 +204,19 @@ if __name__ == '__main__':
         x = int(float(input())/.08)
         print("y position to travel to in m: ")
         y = int(float(input())/.08)
-        print("Please wait for rotation testing...")
-        getRotationTime()
-        print("Please wait for distance testing...")
-        getTravelTime()
+        # print("Please wait for rotation testing...")
+        # getRotationTime()
+        # print("Please wait for distance testing...")
+        # getTravelTime()
         
         print("Scanning surroundings")
         grid = np.full((10,10),0)
         createMapping(0,0,grid)
         print(grid)
+        num_rows, num_cols = grid.shape
+        offset = int(num_rows/2-1)
         print("Planning a path")
-        path = aStar.relativeListPath(aStar.aStar(grid,(49,49),(49-x,y-49)),49,49)
+        path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-x,y-offset)),offset,offset)
         while (x_loc != x and y_loc != y):
             if path[-1] != (x,y):
                 x_loc, y_loc = followPath(path,x_loc,dir,6)

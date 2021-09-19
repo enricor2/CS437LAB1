@@ -12,6 +12,7 @@ class Node():
 
 
 def aStar(map, curPos, endPos):
+    print(curPos, endPos)
     rootNode = Node(None, curPos)                        # beginning node
     rootNode.distToCurPos = 0
     sinkNode = Node(None, endPos)                        # ending node
