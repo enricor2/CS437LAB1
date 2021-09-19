@@ -209,8 +209,8 @@ if __name__ == '__main__':
         x = int(float(input())/.08)
         print("y position to travel to in m: ")
         y = int(float(input())/.08)
-        # print("Please wait for rotation testing...")
-        # getRotationTime()
+        print("Please wait for rotation testing...")
+        getRotationTime()
         # print("Please wait for distance testing...")
         # getTravelTime()
         
