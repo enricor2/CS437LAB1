@@ -116,7 +116,7 @@ def followPath(path,x_loc, y_loc, direction):
         if path[x] == path[-1]:
             print("Arrived at end of path.")
             return x_loc, y_loc
-        nextStep = path[x+1]-path[x]    
+        nextStep = [path[x+1][0]-path[x][0],path[x+1][1]-path[x][1]]    
         turn(direction,nextStep)
         for x in range(4):
             print("move2")
