@@ -57,8 +57,8 @@ def RadarScan():
     results = []
     for i in range(360):
         rotateDegRight()
-        dist = 12.5*ultra.checkdist()   # each value is 8 cm (100 unit grid covers 4 m working distance of ultrasonic)
-        if dist > 50:                   # still within the bounds of the array 
+        dist = 50*ultra.checkdist()   # each value is 2 cm 
+        if dist > 100:                # within moving distance
             dist = 0
         results.append([int(dist*np.sin(i*np.pi/180)),int(dist*np.cos(i*np.pi/180))])
     return results
@@ -124,9 +124,8 @@ def followPath(path,x_loc, y_loc,endReached):
         turn(nextStep)
         y_loc += nextStep[0]
         x_loc += nextStep[1]
-        for x in range(4):
-            print("move2",nextStep, direction)
-            move2()
+        print("move2",nextStep, direction)
+        move2()
     return x_loc,y_loc
 
 def turn(nextStep):
@@ -212,9 +211,9 @@ if __name__ == '__main__':
         x_loc = 0
         y_loc = 0
         print("X position to travel to in m: ")
-        x = int(float(input())/.08)
+        x = int(float(input())/.02)
         print("y position to travel to in m: ")
-        y = int(float(input())/.08)
+        y = int(float(input())/.02)
         print("Please wait for rotation testing...")
         getRotationTime()
         print("Please wait for distance testing...")
@@ -222,7 +221,7 @@ if __name__ == '__main__':
         
         while (x_loc != x or y_loc != y):
             print("Scanning surroundings")
-            grid = np.full((10,10),0)
+            grid = np.full((100,100),0)
             num_rows, num_cols = grid.shape
             offset = int(num_rows/2-1)
             createMapping(0,0,grid)
