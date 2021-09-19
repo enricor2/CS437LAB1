@@ -127,6 +127,7 @@ def followPath(path,x_loc, y_loc,endReached):
         for x in range(4):
             print("move2",nextStep, direction)
             move2()
+    return x_loc,y_loc
 
 def turn(nextStep):
     global direction
