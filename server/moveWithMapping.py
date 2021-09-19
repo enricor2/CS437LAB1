@@ -113,13 +113,15 @@ if __name__ == '__main__':
         getRotationTime()
         print("Please wait for distance testing...")
         getTravelTime()
-        print("Beginning travel...")
         
+        print("Scanning surroundings")
         grid = np.full((100,100),0)
         createMapping(0,0,grid)
-        path = aStar.aStar(grid,(0,0),(99,99))
+        print("Planning a path")
+        path = aStar.relativeListPath(aStar.aStar(grid,(0,0),(x/8,y/8),50,50))
         print(path)
-    
+        print("Beginning travel...")
+        
     
     except KeyboardInterrupt:
         move.destroy()
