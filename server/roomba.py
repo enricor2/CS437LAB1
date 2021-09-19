@@ -33,8 +33,8 @@ def rotateDegLeft():
         time.sleep(.05)
 
 def roomba():
-        if ultra.checkdist() < .1:
-                move.move(50, 'backward', 'no', .5)
+        if ultra.checkdist() < .5:
+                move.move(70, 'backward', 'no', .5)
                 time.sleep(.75)
                 if np.random.rand() > .5:
                         for x in range(90):
@@ -51,6 +51,7 @@ def roomba():
 
 if __name__ == '__main__':
         try:
+                getRotationTime()
                 while(True):
                         roomba()
         except KeyboardInterrupt:
