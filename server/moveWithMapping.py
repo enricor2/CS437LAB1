@@ -218,21 +218,21 @@ if __name__ == '__main__':
         # grid = np.full((10,10),0)
         # createMapping(0,0,grid)
         grid =  np.asarray([[0, 1, 1, 0, 0, 1, 0, 0, 0, 0],
-                [0, 1, 1, 0, 1, 1, 0, 1, 1, 0],
-                [0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
-                [0, 1, 1, 0, 1, 0, 1, 1, 1, 0],
-                [0, 1, 1, 1, 0, 0, 0, 0, 1, 0],
-                [1, 1, 1, 0, 1, 0, 1, 1, 1, 0],
-                [0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
-                [0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
-                [0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
+                            [0, 1, 1, 0, 1, 1, 0, 1, 1, 0],
+                            [0, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+                            [0, 1, 1, 0, 1, 0, 1, 1, 1, 0],
+                            [0, 1, 1, 1, 0, 0, 0, 0, 1, 0],
+                            [1, 1, 1, 0, 1, 0, 1, 1, 1, 0],
+                            [0, 1, 0, 0, 0, 0, 1, 1, 0, 0],
+                            [0, 1, 1, 0, 1, 0, 0, 0, 0, 1],
+                            [0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
         print(grid)
         num_rows, num_cols = grid.shape
         offset = int(num_rows/2-1)
         print("Planning a path")
         path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
-        
+        print(path)
         while (x_loc != x or y_loc != y):
             print("Following path...")
             x_loc,y_loc = followPath(path,x_loc,y_loc)
