@@ -120,9 +120,11 @@ def followPath(path,x_loc, y_loc, dir,numStep = 0):
         nextStep = path[x+1]-path[x]    
         turn(dir,nextStep)
         for x in range(4):
+            print("move2")
             move2()
 
 def turn(dir, nextStep):
+    print("turn")
     if dir == 1:                    #F
         if nextStep == [1,0]:       #F
             return
@@ -229,6 +231,7 @@ if __name__ == '__main__':
         offset = int(num_rows/2-1)
         print("Planning a path")
         path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
+        
         while (x_loc != x and y_loc != y):
             if (path[-1] != [y,x]):
                 x_loc, y_loc = followPath(path,x_loc,dir,6)
