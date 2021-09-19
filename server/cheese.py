@@ -2,6 +2,7 @@ import moveForward
 import rotation
 import move
 import keyboard
+move.setup()
 if __name__ == '__main__':
     while(True):
         if keyboard.is_pressed('w'):
