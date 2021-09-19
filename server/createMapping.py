@@ -74,7 +74,7 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
     err = dx+dy
     while (True):
         try:
-            grid[int(num_rows/2 - y_loc - y0 - 1)][int(num_cols/2 + x_loc + x0 - 1)] = 1
+            grid[int(num_rows/2 - y_loc - y0 - 1)][int(num_cols/2 - x_loc - x0 - 1)] = 1
         except IndexError:
             print("The following point is out of the array bounds... (",x0,",",y0,")")
         if (x0 == x1 and y0 == y1):
