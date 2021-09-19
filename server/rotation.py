@@ -1,4 +1,5 @@
 import move
+import time
 
 rotationTime = .0165
 
