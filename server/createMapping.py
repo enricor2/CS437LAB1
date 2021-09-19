@@ -68,7 +68,7 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
 
 if __name__ == '__main__':
     try:
-        grid = np.zeros(100,100)
+        grid = np.zeros((100,100))
         createMapping(0,0,grid)
         print(grid)
     except KeyboardInterrupt:
