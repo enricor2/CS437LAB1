@@ -2,8 +2,9 @@ import ultra
 import move
 import time
 import numpy as np
+import sys
 move.setup()
-
+np.set_printoptions(threshold=sys.maxsize)
 def rotateDegRight():
         move.move(100,'no','right',0.8)
         time.sleep(.0181)
@@ -20,8 +21,8 @@ def RadarScan():
     results = []
     for i in range(360):
         rotateDegRight()
-        dist = 50*ultra.checkdist() # each value is 8 cm (100 unit grid covers 4 m working distance of ultrasonic)
-        if dist > 4:
+        dist = 12.5*ultra.checkdist()   # each value is 8 cm (100 unit grid covers 4 m working distance of ultrasonic)
+        if dist > 50:                   # still within the bounds of the array 
             dist = 0
         results.append([int(dist*np.sin(x*np.pi/180)),int(dist*np.cos(x*np.pi/180))])
     return results
