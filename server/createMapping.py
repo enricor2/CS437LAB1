@@ -5,7 +5,7 @@ import numpy as np
 import sys
 import matplotlib
 from matplotlib import pyplot as plt
-
+matplotlib.use('agg')
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
 rotationTime = .0165
