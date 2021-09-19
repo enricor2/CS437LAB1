@@ -233,7 +233,7 @@ if __name__ == '__main__':
         
         while (x_loc != x or y_loc != y):
             print("Following path...")
-            x_loc,y_loc = followPath(path,x_loc,direction)
+            x_loc,y_loc = followPath(path,x_loc,y_loc,direction)
 
         print(path)
         print("Beginning travel...")
