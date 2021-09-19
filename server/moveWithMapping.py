@@ -27,6 +27,7 @@ def getTravelTime():
     global travelTime
     move.move(50,'forward','no',0.8)
     time.sleep(travelTime)
+    move.motorStop()
     print("Enter cms traveled forward: ")
     dist = float(input())
     travelTime = travelTime * 2 / dist
