@@ -218,11 +218,12 @@ if __name__ == '__main__':
         getRotationTime()
         print("Please wait for distance testing...")
         getTravelTime()
-        num_rows, num_cols = grid.shape
-        offset = int(num_rows/2-1)
+        
         while (x_loc != x or y_loc != y):
             print("Scanning surroundings")
             grid = np.full((10,10),0)
+            num_rows, num_cols = grid.shape
+            offset = int(num_rows/2-1)
             createMapping(0,0,grid)
             # grid =  np.asarray([[0, 1, 1, 0, 0, 1, 0, 0, 0, 0],
             #                     [0, 1, 1, 0, 1, 1, 0, 1, 1, 0],
