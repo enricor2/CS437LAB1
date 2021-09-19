@@ -3,8 +3,6 @@ import move
 import time
 import numpy as np
 import sys
-import matplotlib
-from matplotlib import pyplot as plt
 
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
@@ -94,8 +92,6 @@ if __name__ == '__main__':
         getRotationTime()
         grid = np.full((100,100),0)
         createMapping(0,0,grid)
-        plt.title("Map of Objects")
-        plt.imshow(grid,cmap='Greys_r')
-        plt.show()
+        print(grid)
     except KeyboardInterrupt:
         move.destroy()
