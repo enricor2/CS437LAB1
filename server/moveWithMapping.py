@@ -231,7 +231,7 @@ if __name__ == '__main__':
         print("Planning a path")
         path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
         
-        while (x_loc != x and y_loc != y):
+        while (x_loc != x or y_loc != y):
             print("Following path...")
             x_loc,y_loc = followPath(path,x_loc,direction)
 
