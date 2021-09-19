@@ -116,7 +116,7 @@ if __name__ == '__main__':
         
         grid = np.full((100,100),0)
         createMapping(0,0,grid)
-        path = aStar.aStar(grid,(0,0),(99,99))sin
+        path = aStar.aStar(grid,(0,0),(99,99))
         print(path)
     
     
