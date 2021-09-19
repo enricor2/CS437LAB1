@@ -110,7 +110,8 @@ def move2():
     time.sleep(travelTime)
     move.motorStop()
 
-def followPath(path,x_loc, y_loc, direction):
+def followPath(path,x_loc, y_loc):
+    global direction
     numStep = len(path) - 1
     for x in range (numStep):
         if path[x] == path[-1]:
@@ -119,11 +120,12 @@ def followPath(path,x_loc, y_loc, direction):
         nextStep = [path[x+1][0]-path[x][0],path[x+1][1]-path[x][1]]    
         turn(direction,nextStep)
         for x in range(4):
-            print("move2")
+            print("move2",nextStep, direction)
             move2()
 
-def turn(direction, nextStep):
-    print("turn")
+def turn(nextStep):
+    global direction
+    print("turn", nextStep, direction)
     if direction == 1:                    #F
         if nextStep == [1,0]:       #F
             return
@@ -233,7 +235,7 @@ if __name__ == '__main__':
         
         while (x_loc != x or y_loc != y):
             print("Following path...")
-            x_loc,y_loc = followPath(path,x_loc,y_loc,direction)
+            x_loc,y_loc = followPath(path,x_loc,y_loc)
 
         print(path)
         print("Beginning travel...")
