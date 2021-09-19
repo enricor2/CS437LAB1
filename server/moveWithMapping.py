@@ -121,4 +121,4 @@ if __name__ == '__main__':
     
     
     except KeyboardInterrupt:
-        move.destroy()S
+        move.destroy()
