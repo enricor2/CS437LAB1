@@ -23,7 +23,7 @@ def getRotationTime():
     elif rotation < 360:
         for x in range(360-int(rotation)):
             rotateDegRight()
-    print("Enter degrees left: ")
+    print("Enter degrees till 360 (negative if overshot): ")
     rotation += float(input())
     if rotation > 360:
         for x in range(int(rotation)-360):
