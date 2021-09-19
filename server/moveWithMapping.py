@@ -210,8 +210,9 @@ if __name__ == '__main__':
         getTravelTime()
         
         print("Scanning surroundings")
-        grid = np.full((100,100),0)
+        grid = np.full((10,10),0)
         createMapping(0,0,grid)
+        print(grid)
         print("Planning a path")
         path = aStar.relativeListPath(aStar.aStar(grid,(49,49),(49-x,y-49)),49,49)
         while (x_loc != x and y_loc != y):
