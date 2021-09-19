@@ -5,9 +5,12 @@ import numpy as np
 import sys
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
+
 rotationTimeRight = .0175
 rotationTimeLeft = .0185
+
 def getRotationTimeRight():
+    global rotationTimeRight
     for x in range(360):
         rotateDegRight()
     print("Enter degrees rotated: ")
@@ -15,6 +18,7 @@ def getRotationTimeRight():
     rotationTimeRight = rotationTimeRight * 360 / rotation
 
 def getRotationTimeLeft():
+    global rotationTimeLeft
     for x in range(360):
         rotateDegLeft()
     print("Enter degrees rotated: ")
