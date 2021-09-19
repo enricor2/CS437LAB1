@@ -19,6 +19,6 @@ def getTravelTime():
 
 def move1():
     global travelTime
-    move.move(50,'forward','no',0.8)
+    move.move(70,'forward','no',0.8)
     time.sleep(travelTime)
     move.motorStop()
