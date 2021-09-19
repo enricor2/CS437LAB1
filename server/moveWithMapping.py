@@ -39,14 +39,10 @@ def getTravelTime():
     move.motorStop()
     print("Enter cms traveled forward: ")
     dist = float(input())
-    travelTime = travelTime * 2 / dist
-    if dist > 2:
-        for x in range(int(dist/2)-1):
-            move.move(50,'backward','no',0.8)
-            time.sleep(travelTime)
-    else:
+    travelTime = travelTime * 1 / dist
+    if dist > 1:
         move.move(50,'backward','no',0.8)
-        time.sleep(travelTime)
+        time.sleep(travelTime*dist)
     move.motorStop()
 
 def rotateDegRight():
@@ -65,8 +61,8 @@ def RadarScan():
     results = []
     for i in range(360):
         rotateDegRight()
-        dist = 50*ultra.checkdist()   # each value is 2 cm 
-        if dist > 100:                # within moving distance
+        dist = 100*ultra.checkdist()  # each value is 1 cm 
+        if dist == -2:
             dist = 0
         results.append([int(dist*np.sin(i*np.pi/180)),int(dist*np.cos(i*np.pi/180))])
     return results
@@ -112,11 +108,12 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
             err += dx
             y0 += sy 
 
-def move2():
+def move1():
     global travelTime
     move.move(50,'forward','no',0.8)
     time.sleep(travelTime)
     move.motorStop()
+    time.sleep(.25)
 
 def followPath(path,x_loc, y_loc,endReached):
     global direction
@@ -133,7 +130,7 @@ def followPath(path,x_loc, y_loc,endReached):
         y_loc += nextStep[0]
         x_loc += nextStep[1]
         print("move2",nextStep, direction)
-        move2()
+        move1()
     return x_loc,y_loc
 
 def turn(nextStep):
