@@ -90,7 +90,7 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
 if __name__ == '__main__':
     try:
         getRotationTime()
-        grid = np.full((20,20),8)
+        grid = np.full((20,20),' ')
         createMapping(0,0,grid)
         print(grid)
     except KeyboardInterrupt:
