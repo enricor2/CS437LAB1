@@ -110,9 +110,12 @@ def move2():
     time.sleep(travelTime)
     move.motorStop()
 
-def followPath(path,x_loc, y_loc):
+def followPath(path,x_loc, y_loc,endReached):
     global direction
-    numStep = len(path) - 1
+    if endReached:
+        numStep = len(path) - 1
+    else: 
+        numStep = 5
     for x in range (numStep):
         if path[x] == path[-1]:
             print("Arrived at end of path.")
@@ -237,7 +240,8 @@ if __name__ == '__main__':
             path = aStar.relativeListPath(aStar.aStar(grid,(offset,offset),(offset-y,offset+x)),offset,offset)
             print(path)
             print("Following path...")
-            x_loc, y_loc = followPath(path,x_loc,y_loc)
+            x_loc, y_loc = followPath(path,x_loc,y_loc,path[-1]==[y,x])
+            print("Path ended at",y_loc,x_loc," going to ", y, x)
 
 
         print(path)
