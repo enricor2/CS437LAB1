@@ -5,15 +5,33 @@ import numpy as np
 import sys
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
+rotationTimeRight = .0175
+rotationTimeLeft = .0185
+def getRotationTimeRight():
+    for x in range(360):
+        rotateDegRight()
+    print("Enter degrees rotated: ")
+    rotation = input()
+    rotationTimeRight = rotationTimeRight * 360 / rotation
+
+def getRotationTimeLeft():
+    for x in range(360):
+        rotateDegLeft()
+    print("Enter degrees rotated: ")
+    rotation = input()
+    rotationTimeLeft = rotationTimeLeft * 360 / rotation
+
+
+
 def rotateDegRight():
         move.move(100,'no','right',0.8)
-        time.sleep(.0181)
+        time.sleep(rotationTimeRight)
         move.motorStop()
         time.sleep(.05)
 
 def rotateDegLeft():
         move.move(100,'no','left',0.8)
-        time.sleep(.01935)
+        time.sleep(rotationTimeLeft)
         move.motorStop()
         time.sleep(.05)
 
@@ -42,7 +60,6 @@ def createMapping(x_loc,y_loc,map):
 def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
     num_rows, num_cols = grid.shape
     grid[int(num_cols/2-1)][int(num_rows/2-1)] = 9
-    print(num_rows,num_cols)
     dx = abs(x1-x0)
     if x0<x1:
         sx = 1
@@ -68,7 +85,10 @@ def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
 
 if __name__ == '__main__':
     try:
+        getRotationTimeRight()
+        getRotationTimeLeft()
         grid = np.zeros((100,100))
+        print(grid)
         createMapping(0,0,grid)
         print(grid)
     except KeyboardInterrupt:
