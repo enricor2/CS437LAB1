@@ -15,7 +15,7 @@ def getRotationTimeRight():
         rotateDegRight()
     print("Enter degrees rotated: ")
     rotation = input()
-    rotationTimeRight = rotationTimeRight * 360 / int(rotation)
+    rotationTimeRight = rotationTimeRight * 360 / float(rotation)
 
 def getRotationTimeLeft():
     global rotationTimeLeft
@@ -23,7 +23,7 @@ def getRotationTimeLeft():
         rotateDegLeft()
     print("Enter degrees rotated: ")
     rotation = input()
-    rotationTimeLeft = rotationTimeLeft * 360 / int(rotation)
+    rotationTimeLeft = rotationTimeLeft * 360 / float(rotation)
 
 
 
