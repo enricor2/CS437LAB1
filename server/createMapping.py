@@ -20,13 +20,13 @@ def getRotationTime():
 
 def rotateDegRight():
         move.move(100,'no','right',0.8)
-        time.sleep(rotationTimeRight)
+        time.sleep(rotationTime)
         move.motorStop()
         time.sleep(.05)
 
 def rotateDegLeft():
         move.move(100,'no','left',0.8)
-        time.sleep(rotationTimeLeft)
+        time.sleep(rotationTime)
         move.motorStop()
         time.sleep(.05)
 
