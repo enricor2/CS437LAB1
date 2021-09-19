@@ -220,8 +220,14 @@ if __name__ == '__main__':
         y_loc = 0
         print("X position to travel to in m: ")
         x = int(float(input())/.02)
+        if x >= 50:
+            print("Max distance is 1 m")
+            x = 49
         print("y position to travel to in m: ")
         y = int(float(input())/.02)
+        if y >= 50:
+            print("Max distance is 1 m")
+            y = 49
         print("Please wait for rotation testing...")
         getRotationTime()
         print("Please wait for distance testing...")
