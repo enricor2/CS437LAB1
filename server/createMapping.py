@@ -3,8 +3,8 @@ import move
 import time
 import numpy as np
 import sys
-import python-matplotlib
-from python-matplotlib import pyplot as plt
+import matplotlib
+from matplotlib import pyplot as plt
 
 move.setup()
 np.set_printoptions(threshold=sys.maxsize)
