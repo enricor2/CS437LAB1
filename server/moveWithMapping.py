@@ -77,7 +77,7 @@ def createMapping(x_loc,y_loc,map):
 
 def plotLine(x0, y0, x1, y1,grid,x_loc,y_loc):
     num_rows, num_cols = grid.shape
-    grid[int(num_cols/2-1)][int(num_rows/2-1)] = 9
+    grid[int(num_cols/2-1)][int(num_rows/2-1)] = 0
     dx = abs(x1-x0)
     if x0<x1:
         sx = 1
